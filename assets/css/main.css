@@ -362,7 +362,7 @@
 
 .modal-Register,
 .modal-Login {
-    display: none;
+    /* display: none; */
 
 }
 .open {
