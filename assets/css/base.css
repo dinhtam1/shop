@@ -92,7 +92,7 @@ html {
     left: 0;
     right: 0;
     display: flex;
-    animation: fadeIn linear 0.1s;
+    animation: fadeIn ease-in 0.4s;
 }
 
 .modal__overlay {
