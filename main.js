@@ -13,6 +13,8 @@ const $ = document.querySelector.bind(document);
         const btnNormals = $$('.btn-normal')
         const categoryItems = $$('.category-item')
         const homeFilterBtns = $$('.home-filter__btn')
+        const headerCartItemRemoves =  $$('.header__cart-item-remove');
+        const headerCartItems = $$('.header__cart-item')
         function showModal(modal) {
             modal.classList.add('open')
         }
