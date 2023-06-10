@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<style>
+        h1,
+        label,
+        select,
+        button {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 50px;
+            padding: 8px;
+            height: 30px;
+        }
+    </style>
+<body>
+    <div class="container mt-4">
+        <h1>Thông tin người dùng</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Tên</label>
+                <input type="text" class="form-control" id="name" value="Trần Đình Tâm">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" value="villadiwc123@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" class="form-control" id="phone" value="0905833248">
+            </div>
+            <div class="form-group">
+                <label for="gender">Giới tính</label>
+                <select class="form-control" id="gender">
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn--primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

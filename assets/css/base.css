@@ -131,7 +131,7 @@ html {
 } 
 
 .btn.btn-normal:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0);
 }
 
 .btn.btn--primary  {
