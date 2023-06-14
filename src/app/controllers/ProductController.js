@@ -3,12 +3,12 @@ const { mongooseToObject } = require('../../util/mogoose');
 
 class  ProductController {
     index(req, res) {
-        res.render('products/show')
+        res.render('product')
     }
     show(req, res ,  next) {
         Product.findOne({ slug: req.params.slug })
             .then(product => {
-                res.render('products/show', { product: mongooseToObject(product) })
+                res.render('product', { product: mongooseToObject(product) })
             })
             .catch(next);
     }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="product__container">
+        <div class="grid">
+            <div class="product">
+                <div class="product__img">
+                    <img src="{{product.img}}" alt="">
+                </div>
+                <div class="product__desc">
+                    <p class="product__name">{{product.name}}</p>
+                    <div class="product__sold">
+                        <div class="product__sold-rating">
+                            <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                            <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                            <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                            <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="product__sold-quantity">{{product.sold}}</span>
+                        <span class="product__sold-content">Đã Bán</span>
+                    </div>
+                    <div class="product__price">
+                        <span class="product__old-price">{{product.oldprice}}</span>
+                        <span class="product__current-price">{{product.price}}</span>
+                        <div class="product__price-sale">
+                            <span class="product__price-sale-text">
+                                15% GIẢM
+                            </span>
+                        </div>
+                    </div>
+                    <div class="quantity__control">
+                        <span class="quantity__control-label">Số lượng </span>
+                        <button class="decrease-btn">-</button>
+                        <input name="quantity__oder" type="text" class="quantity__input" value="1" min="1">
+                        <button class="increase-btn">+</button>
+                    </div>
+
+
+
+                    <button class="btn--primary btn__add-product">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const decreaseBtn = document.querySelector('.decrease-btn');
+        const increaseBtn = document.querySelector('.increase-btn');
+        const quantityInput = document.querySelector('.quantity__input');
+
+
+        decreaseBtn.onclick = function () {
+            {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            };
+        }
+
+        increaseBtn.onclick = function () {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        };
+
+
+    </script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
