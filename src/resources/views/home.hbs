@@ -87,7 +87,7 @@
                                 <!-- Product item -->
                                 {{#each product}}
                                 <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="/product/{{this.slug}}">
+                                    <a class="home-product-item" href="/product/{{this._id}}">
                                         <div class="home-product-item__img"
                                             style="background-image: url({{this.img}});">
                                         </div>
@@ -95,8 +95,8 @@
                                         <h4 class="home-product-item__name">{{this.name}}</h4>
 
                                         <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">{{this.oldprice}}</span>
-                                            <span class="home-product-item__price-current">{{this.price}}</span>
+                                            <span class="home-product-item__price-old">{{this.oldprice}}đ</span>
+                                            <span class="home-product-item__price-current">{{this.price}}đ</span>
                                         </div>
 
                                         <div class="home-product-item__action">

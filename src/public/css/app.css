@@ -275,7 +275,8 @@ html {
   margin: 32px 0px;
   align-items: center; }
 
-.quantity__control-label {
+.quantity__control-label,
+.material-label {
   font-size: 16px;
   margin-right: 24px;
   opacity: 0.6; }
@@ -295,6 +296,9 @@ html {
   width: 40px;
   padding: 8px;
   text-align: center; }
+
+.material-label-name {
+  font-size: 16px; }
 
 .btn__add-product {
   position: absolute;

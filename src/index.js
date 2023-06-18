@@ -24,7 +24,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('combined'));
 
 //  Template engine
-app.engine('.hbs', engine({ extname: '.hbs' }));
+app.engine('.hbs', engine({ extname: '.hbs',
+            helpers : {
+                multi: (a,b) => a * b,
+                sum: (a,b) => a + b,
+                total: (cart) => {
+                    let total = 0;
+                    cart.forEach((item) => {
+                      total += item.quantity * item.price;
+                    });
+                    return total;
+                  },
+            }
+}));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 

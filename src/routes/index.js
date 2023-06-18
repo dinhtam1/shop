@@ -1,13 +1,13 @@
 
 const productRouter = require('./product');
 const siteRouter = require('./site');
-const orderRouter = require('./order');
-const accountRouter = require('./account');
+const cartRouter = require('./cart');
+const userRouter = require('./user');
 
 function route(app) {
     app.use('/product' , productRouter)
-    app.use('/account' , accountRouter)
-    app.use('/order' , orderRouter)
+    app.use('/user' , userRouter)
+    app.use('/cart' , cartRouter)
     app.use('/' , siteRouter)
 }
 

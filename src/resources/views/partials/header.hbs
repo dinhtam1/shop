@@ -88,10 +88,10 @@
                         Trợ giúp
                     </a>
                 </li>
-               <!-- <li class="header__navbar-item header__navbar-list--separate btn-register">Đăng Ký
+               {{!-- <li class="header__navbar-item header__navbar-list--separate btn-register">Đăng Ký
                 </li>
                 <li class="header__navbar-item btn-login">Đăng Nhập
-                </li> -->
+                </li>  --}}
 
                  <li class="header__navbar-item header__navbar-user">
                             <img class="header__navbar-user-avt" src="/img/avt.png" alt="">
@@ -101,13 +101,13 @@
 
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
-                                    <a href="account">Tài khoản của tôi</a>
+                                    <a href="/user">Tài khoản của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="">Địa chỉ của tôi</a>
+                                    <a href="/address">Địa chỉ của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="">Đơn mua</a>
+                                    <a href="/cart">Giỏ hàng</a>
                                 </li>
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
                                     <a href="">Đăng xuất</a>
@@ -177,14 +177,11 @@
                     <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
-
-
-            <!-- Header CART -->
-
+      <!-- Header CART -->
             <div class="header__cart">
                 <div class="header__cart-wrap">
                     <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
-                    <span class="header__cart-notice">4</span>
+                    <span class="header__cart-notice">{{documentCount}}</span>
                     <!-- No cart : header__cart-list--no-cart -->
                     <div class="header__cart-list">
                         <img class="header__cart-no-cart-img" src="/img/no-cart.png" alt="">
@@ -193,95 +190,34 @@
                         <h4 class="header__cart-list-title">Sản phẩm đã thêm</h4>
 
                         <ul class="header__cart-list-item">
+                            {{#each cart}}
                             <li class="header__cart-item">
-                                <img class="header__cart-item-img" src="/img/ao_leventt.png" alt="">
+                                <img class="header__cart-item-img" src="{{this.img}}" alt="">
                                 <div class="header__cart-item-info">
                                     <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">Áo thun oversize Levent</h5>
+                                        <h5 class="header__cart-item-name">{{this.name}}</h5>
                                         <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">500.000đ</span>
+                                            <span class="header__cart-item-price">{{this.price}}đ</span>
                                             <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-quantity">2</span>
+                                            <span class="header__cart-item-quantity">{{this.quantity}}</span>
                                         </div>
                                     </div>
 
                                     <div class="header__cart-item-body">
-                                        <span class="header__cart-item-description">Phân loại : Thun</span>
+                                        <span class="header__cart-item-description">Phân loại : {{this.material}}</span>
                                         <span class="header__cart-item-remove">Xóa</span>
                                     </div>
 
                                 </div>
 
                             </li>
+                            {{/each}}
 
-
-                            <li class="header__cart-item">
-                                <img class="header__cart-item-img" src="/img/ao.jpg" alt="">
-                                <div class="header__cart-item-info">
-                                    <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">Áo thun oversize Levents</h5>
-                                        <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">450.000đ</span>
-                                            <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-quantity">3</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="header__cart-item-body">
-                                        <span class="header__cart-item-description">Phân loại : Thun</span>
-                                        <span class="header__cart-item-remove">Xóa</span>
-                                    </div>
-
-                                </div>
-
-                            </li>
-
-                            <li class="header__cart-item">
-                                <img class="header__cart-item-img" src="/img/binh_giu_nhiet.png" alt="">
-                                <div class="header__cart-item-info">
-                                    <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">Bình giữ nhiệt Sunhouse</h5>
-                                        <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">120.000đ</span>
-                                            <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-quantity">2</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="header__cart-item-body">
-                                        <span class="header__cart-item-description">Phân loại : Inox</span>
-                                        <span class="header__cart-item-remove">Xóa</span>
-                                    </div>
-
-                                </div>
-
-                            </li>
-
-                            <li class="header__cart-item">
-                                <img class="header__cart-item-img" src="/img/whey_protein.png" alt="">
-                                <div class="header__cart-item-info">
-                                    <div class="header__cart-item-head">
-                                        <h5 class="header__cart-item-name">Whey Protein dành cho gymmer</h5>
-                                        <div class="header__cart-item-price-wrap">
-                                            <span class="header__cart-item-price">1.500.000đ</span>
-                                            <span class="header__cart-item-multiply">x</span>
-                                            <span class="header__cart-item-quantity">1</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="header__cart-item-body">
-                                        <span class="header__cart-item-description">Phân loại : Thun</span>
-                                        <span class="header__cart-item-remove">Xóa</span>
-                                    </div>
-
-                                </div>
-
-                            </li>
 
 
                         </ul>
 
-                        <a href="#" class="header__cart-view-cart btn btn--primary">
+                        <a href="/cart" class="header__cart-view-cart btn btn--primary">
                             Xem giỏ hàng
                         </a>
                     </div>
@@ -442,297 +378,23 @@
     </div>
 </form>
 
- <script>
-        const $ = document.querySelector.bind(document);
-        const $$ = document.querySelectorAll.bind(document);
 
-        const btnLogin = $('.btn-login')
-        const btnRegister = $('.btn-register')
-        const modal = $('.modal')
-        const modalRegister = $('.modal-Register')
-        const modalLogin = $('.modal-Login')
-        const modalOverlay = $('.modal__overlay')
-        const modalBodys = $$('.modal__body')
-        const switchBtns = $$('.auth-form__switch-btn')
-        const btnNormals = $$('.btn-normal')
-        const categoryItems = $$('.category-item')
-        const homeFilterBtns = $$('.home-filter__btn')
-        const headerCartItemRemoves = $$('.header__cart-item-remove');
-        const headerCartItems = $$('.header__cart-item')
-        function showModal(modal) {
-            modal.classList.add('open')
-        }
-
-
-        if (modalLogin) {
-            btnLogin.onclick = function () {
-                showModal(modalLogin);
-            }
-            modalLogin.addEventListener('click', function () {
-                modalLogin.classList.remove('open')
-
-            })
-        }
-
-        if (modalRegister) {
-            btnRegister.onclick = function () {
-                showModal(modalRegister);
-            }
-
-            modalRegister.addEventListener('click', function () {
-                modalRegister.classList.remove('open')
-
-            })
-        }
-        Array.from(btnNormals).forEach(function (btnNormal) {
-            btnNormal.onclick = function (e) {
-                e.preventDefault();
-            }
-        })
-
-
-        Array.from(modalBodys).forEach(function (modalBody) {
-            modalBody.addEventListener('click', function (event) {
-                event.stopPropagation();
-            })
-        })
-
-        Array.from(switchBtns).forEach(function (switchBtn) {
-
-            switchBtn.onclick = function () {
-                modalRegister.classList.toggle('open');
-                modalLogin.classList.toggle('open');
-            }
-        })
-
-        Array.from(categoryItems).forEach(function (categoryItem) {
-            categoryItem.onclick = function (event) {
-                event.preventDefault();
-                categoryItems.forEach(function (categoryItem) {
-                    if (categoryItem.classList.contains('category-item--active')) {
-                        categoryItem.classList.remove('category-item--active');
-                    }
-                })
-                categoryItem.classList.add('category-item--active');
-            }
-        })
-
-
-        Array.from(homeFilterBtns).forEach(function (homeFilterBtn) {
-
-            homeFilterBtn.onclick = function (event) {
-                event.preventDefault();
-                homeFilterBtns.forEach(function (homeFilterBtn) {
-                    if (homeFilterBtn.classList.contains('btn--primary')) {
-                        homeFilterBtn.classList.remove('btn--primary');
-                    }
-                })
-                homeFilterBtn.classList.add('btn--primary');
-            }
-
-        })
+    <script src="/src/main.js">
     </script>
-
-    <script>
-        function Validator(options) {
-
-            /*
-        sửa lỗi : form-message có thể ở trong cùng nhiều thẻ div , thay hết các phần
-        sử dụng inputElement.parent 
-        output : form-message dù nằm trong bao nhiêu thẻ div thì vẫn
-        lấy ra thẻ form-group ngoài cùng
-        ý tưởng : lặp qua từng thẻ cha của input nếu trùng với selector
-        thì trả về thẻ form-group hiện tại , không thì gán thẻ hiện tại
-        vào biến rồi lặp tiếp
-        */
-            function getParent(element, selector) {
-                while (element.parentElement) {
-                    if (element.parentElement.matches(selector)) {
-                        return element.parentElement;
-                    }
-                    element = element.parentElement;
-
-                }
-            }
-
-            const selectorRules = {}
-
-            function validate(inputElement, rule) {
-
-                const errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-
-                var errorMessage;
-
-                var rules = selectorRules[rule.selector]
-                for (var i = 0; i < rules.length; i++) {
-                    switch (inputElement.type) {
-                        case 'radio':
-                        case 'checkbox':
-                            errorMessage = rules[i](
-                                formElement.querySelector(rule.selector + ':checked')
-                            );
-                            break;
-                        default:
-                            errorMessage = rules[i](inputElement.value);
-                    }
-                    if (errorMessage) break;
-                }
-
-                if (errorMessage) {
-                    errorElement.innerText = errorMessage;
-                    getParent(inputElement, options.formGroupSelector).classList.add('invalid');
-                }
-                else {
-                    errorElement.innerText = '';
-                    getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
-                }
-                return !errorMessage;
-            }
-
-            const formElement = document.querySelector(options.form);
-            if (formElement) {
-
-
-                formElement.onsubmit = function (e) {
-                    e.preventDefault();
-                    var formValid = true;
-                    options.rules.forEach(function (rule) {
-                        const inputElement = formElement.querySelector(rule.selector)
-                        var isValid = validate(inputElement, rule);
-                        if (!isValid) {
-                            formValid = false
-                        }
-                    })
-
-                    if (formValid) {
-                        if (typeof options.onSubmit === 'function') {
-                            var enableInputs = formElement.querySelectorAll('[name]')
-
-                            var formValues = Array.from(enableInputs).reduce(function (values, input) {
-
-                                switch (input.type) {
-                                    case 'checkbox':
-                                        if (!input.matches(':checked')) {
-                                            values[input.name] = '';
-                                            return values;
-                                        }
-                                        if (!Array.isArray(values[input.name])) {
-                                            values[input.name] = [];
-                                        }
-                                        values[input.name].push(input.value);
-                                        break;
-                                    case 'radio':
-                                        values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
-                                        break;
-                                    case 'file':
-                                        values[input.name] = input.files;
-                                        break;
-                                    default:
-                                        values[input.name] = input.value;
-
-                                }
-
-                                return values;
-                            }, {});
-
-                            options.onSubmit({ formValues })
-                        }
-                    }
-
-                }
-
-
-
-                options.rules.forEach(function (rule) {
-                    if (Array.isArray(selectorRules[rule.selector])) {
-                        selectorRules[rule.selector].push(rule.test);
-                    }
-                    else {
-                        selectorRules[rule.selector] = [rule.test];
-                    }
-                    var inputElements = formElement.querySelectorAll(rule.selector)
-
-                    Array.from(inputElements).forEach(function (inputElement) {
-
-
-                        inputElement.onblur = function () {
-                            validate(inputElement, rule);
-                        }
-
-                        inputElement.oninput = function () {
-                            const errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-                            errorElement.innerText = '';
-                            getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
-                        }
-
-                    })
-
-
-
-
-
-                })
-                //console.log(selectorRules)
-
-            }
-        }
-
-        Validator.isRequired = function (selector) {
-            return {
-                selector: selector,
-                test: function (value) {
-                    return value ? undefined : 'Hãy nhập đúng định dạng'
-                }
-            }
-
-        }
-
-        Validator.isEmail = function (selector) {
-            return {
-                selector: selector,
-                test: function (value) {
-                    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                    return regex.test(value) ? undefined : "Hãy nhập đúng định dạng email"
-                }
-            }
-
-        }
-
-        Validator.isMin = function (selector, min, message) {
-            return {
-                selector: selector,
-                test: function (value) {
-                    return value.length >= min ? undefined : message || "Hãy nhập đúng định dạng"
-                }
-            }
-
-        }
-
-        Validator.isConfirmed = function (selector, isConfirmed, message) {
-            return {
-                selector: selector,
-                test: function (value) {
-                    return value === isConfirmed() ? undefined : message || "Hãy nhập đúng định dạng"
-
-                }
-            }
-
-        }
-
+    <script src="/src/validator.js">
     </script>
-
-    <script>
-        Validator({
-            form: "#formRegister",
+        <script>
+            Validator({
+                form: "#formRegister",
             formGroupSelector: '.auth-form__group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isEmail('#email-Register'),
-                Validator.isRequired('#password-Register'),
-                Validator.isMin('#password-Register', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
-                Validator.isRequired('#password_confirmation'),
-                Validator.isMin('#password_confirmation', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
-                Validator.isConfirmed('#password_confirmation', function () {
+            Validator.isEmail('#email-Register'),
+            Validator.isRequired('#password-Register'),
+            Validator.isMin('#password-Register', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isMin('#password_confirmation', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+            Validator.isConfirmed('#password_confirmation', function () {
                     return document.querySelector('#formRegister #password-Register').value;
                 }, 'Mật khẩu xác nhận không đúng'),
             ],
@@ -741,22 +403,18 @@
             }
         });
 
-        Validator({
-            form: "#formLogin",
+            Validator({
+                form: "#formLogin",
             formGroupSelector: '.auth-form__group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isEmail('#email-Login'),
-                Validator.isRequired('#password-Login'),
-                Validator.isMin('#password-Login', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+            Validator.isEmail('#email-Login'),
+            Validator.isRequired('#password-Login'),
+            Validator.isMin('#password-Login', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
 
             ],
             onSubmit: function (data) {
                 console.log(data);
             }
         });
-
-
-
-
     </script>

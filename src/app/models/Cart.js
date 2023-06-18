@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const Product = new Schema({
+const Cart = new Schema({
     img: { type: String, required: true },
     name: { type: String, required: true },
     oldprice: { type: String, required: true },
@@ -12,10 +12,11 @@ const Product = new Schema({
     brand: { type: String, required: true },
     origin: { type: String, required: true },
     material: { type: String, required: true },
+    quantity: { type: String, required: true },
     
     
 
 });
 
-module.exports = mongoose.model('Product', Product);
+module.exports = mongoose.model('Cart', Cart);
 

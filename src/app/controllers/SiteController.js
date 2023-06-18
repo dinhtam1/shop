@@ -1,15 +1,24 @@
 const Product = require('../models/Product');
-const { mutipleMongooseToObject } = require('../../util/mogoose');
-class  SiteController {
-    index(req, res) {
+const Cart = require('../models/Cart');
+const { multipleMongooseToObject } = require('../../util/mongoose');
+class SiteController {
+    index(req, res, next) {
         Product.find({})
             .then((product) => {
-                res.render('home' , {
-                    product: mutipleMongooseToObject(product)
+                return Cart.countDocuments({}).then((count) => {
+                    res.locals.documentCount = count;
+                    return product;
                 });
             })
-            .catch((error) => next(error));
-       // res.render('home')
+            .then((product) => {
+                return Cart.find({}).then((cart) => {
+                    res.render('home', {
+                        product: multipleMongooseToObject(product),
+                        cart: multipleMongooseToObject(cart),
+                    });
+                });
+            })
+            .catch(next);
     }
     address(req, res) {
         res.render('address')

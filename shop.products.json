@@ -4,13 +4,13 @@
   },
   "img": "/img/ao_product.png",
   "name": "Áo Khoác MBC Checked Corduroy Exclusive Jacket - Đen/Kem/Hồng/Rêu",
-  "oldprice": "690.000đ",
-  "price": "386.500đ",
+  "oldprice": 690.999,
+  "price": 386.555,
   "like": "empty",
   "sold": 68,
   "brand": "MBC",
   "origin": "Việt Nam",
-  "slug": "1"
+  "material": "Nhung tăm"
 },
 {
   "_id": {
@@ -18,13 +18,13 @@
   },
   "img": "/img/quan.png",
   "name": "Quần Shorts Basic Thun MBC - Kem",
-  "oldprice": "490.000đ",
-  "price": "350.000đ",
+  "oldprice": 490.123,
+  "price": 350.123,
   "like": "liked",
   "sold": 102,
   "brand": "M.B.O",
   "origin": "Việt Nam",
-  "slug": "4"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -32,13 +32,13 @@
   },
   "img": "/img/pull_xam.png",
   "name": "Áo Thun MBC Cherry Blossom - Xám Chì/Vanilla/Trắng/Đen/Kemu",
-  "oldprice": "490.000đ",
-  "price": "380.500đ",
+  "oldprice": 490.999,
+  "price": 380.999,
   "like": "liked",
   "sold": 423,
   "brand": "MBC",
   "origin": "Việt Nam",
-  "slug": "2"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -46,13 +46,13 @@
   },
   "img": "/img/hoodie.png",
   "name": "Quần Shorts MBC Studio F/W 2022 Collection - Đen/Nâu/Kem",
-  "oldprice": "250.000đ",
-  "price": "216.500đ",
+  "oldprice": 250.999,
+  "price": 216.555,
   "like": "empty",
   "sold": 65,
   "brand": "MBC",
   "origin": "Việt Nam",
-  "slug": "3"
+  "material": "Nỉ"
 },
 {
   "_id": {
@@ -60,13 +60,13 @@
   },
   "img": "/img/aokhoac_den.png",
   "name": "(Mỏng Nhẹ) Áo Hoodie Nỉ Bông MBC Smiley - Đen",
-  "oldprice": "250.000đ",
-  "price": "200.000đ",
+  "oldprice": 250.999,
+  "price": 199.999,
   "like": "liked",
   "sold": 99,
   "brand": "MBC",
   "origin": "Việt Nam",
-  "slug": "5"
+  "material": "Nỉ"
 },
 {
   "_id": {
@@ -74,13 +74,13 @@
   },
   "img": "/img/polo_levent.png",
   "name": "Áo Polo Levents Mini Popular/ Black",
-  "oldprice": "370.000đ",
-  "price": "333.000đ",
+  "oldprice": 370.999,
+  "price": 333.333,
   "like": "liked",
   "sold": 342,
   "brand": "Levent",
   "origin": "Việt Nam",
-  "slug": "6"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -88,13 +88,13 @@
   },
   "img": "/img/polo_levent_white.png",
   "name": "Áo Polo Levents Mini Popular/ White",
-  "oldprice": "370.000đ",
-  "price": "333.000đ",
+  "oldprice": 370.999,
+  "price": 333.333,
   "like": "liked",
   "sold": 260,
   "brand": "Levent",
   "origin": "Việt Nam",
-  "slug": "7"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -102,13 +102,13 @@
   },
   "img": "/img/dep_levent.png",
   "name": "Dép Levents Essential 2.0/ Grey",
-  "oldprice": "410.000đ",
-  "price": "386.500đ",
+  "oldprice": 410.111,
+  "price": 386.555,
   "like": "empty",
   "sold": 130,
   "brand": "Levent",
   "origin": "Việt Nam",
-  "slug": "8"
+  "material": "Nhựa"
 },
 {
   "_id": {
@@ -116,13 +116,13 @@
   },
   "img": "/img/polo_levent2.png",
   "name": "Áo Polo Levents Stripe/ Black",
-  "oldprice": "420.000đ",
-  "price": "369.000đ",
+  "oldprice": 420.222,
+  "price": 369.999,
   "like": "empty",
   "sold": 75,
   "brand": "Levent",
   "origin": "Việt Nam",
-  "slug": "9"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -130,13 +130,13 @@
   },
   "img": "/img/aopull_levent.png",
   "name": "Áo Thun Levents Doraemon Famous Cat/ Green",
-  "oldprice": "370.000đ",
-  "price": "333.000đ",
+  "oldprice": 370.999,
+  "price": 333.333,
   "like": "liked",
   "sold": 125,
   "brand": "Levent",
   "origin": "Việt Nam",
-  "slug": "10"
+  "material": "Thun"
 },
 {
   "_id": {
@@ -144,12 +144,13 @@
   },
   "img": "/img/quan.png",
   "name": "Quần Shorts Basic Thun MBC - Kem",
-  "oldprice": "490.000đ",
-  "price": "350.000đ",
+  "oldprice": 490.899,
+  "price": 350.999,
   "like": "liked",
   "sold": 102,
   "brand": "M.B.O",
-  "origin": "Việt Nam"
+  "origin": "Việt Nam",
+  "material": "Thun"
 },
 {
   "_id": {
@@ -157,12 +158,13 @@
   },
   "img": "/img/polo_levent_white.png",
   "name": "Áo Polo Levents Mini Popular/ White",
-  "oldprice": "370.000đ",
-  "price": "333.000đ",
+  "oldprice": 370.111,
+  "price": 333.333,
   "like": "liked",
   "sold": 260,
   "brand": "Levent",
-  "origin": "Việt Nam"
+  "origin": "Việt Nam",
+  "material": "Thun"
 },
 {
   "_id": {
@@ -170,12 +172,13 @@
   },
   "img": "/img/dep_levent.png",
   "name": "Dép Levents Essential 2.0/ Grey",
-  "oldprice": "410.000đ",
-  "price": "386.500đ",
+  "oldprice": 410.111,
+  "price": 386.555,
   "like": "empty",
   "sold": 130,
   "brand": "Levent",
-  "origin": "Việt Nam"
+  "origin": "Việt Nam",
+  "material": "Nhựa"
 },
 {
   "_id": {
@@ -183,23 +186,11 @@
   },
   "img": "/img/dep_levent.png",
   "name": "Dép Levents Essential 2.0/ Grey",
-  "oldprice": "410.000đ",
-  "price": "386.500đ",
+  "oldprice": 410.111,
+  "price": 386.555,
   "like": "empty",
   "sold": 130,
   "brand": "Levent",
-  "origin": "Việt Nam"
-},
-{
-  "_id": {
-    "$oid": "6482aa15eb7f2471e4fed4ee"
-  },
-  "img": "/img/polo_levent2.png",
-  "name": "Áo Polo Levents Stripe/ Black",
-  "oldprice": "420.000đ",
-  "price": "369.000đ",
-  "like": "empty",
-  "sold": 75,
-  "brand": "Levent",
-  "origin": "Việt Nam"
+  "origin": "Việt Nam",
+  "material": "Nhựa"
 }]
