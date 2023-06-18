@@ -26,14 +26,14 @@ app.use(morgan('combined'));
 //  Template engine
 app.engine('.hbs', engine({ extname: '.hbs',
             helpers : {
-                multi: (a,b) => a * b,
+                multi: (a,b) => (a * b).toFixed(3),
                 sum: (a,b) => a + b,
                 total: (cart) => {
                     let total = 0;
                     cart.forEach((item) => {
                       total += item.quantity * item.price;
                     });
-                    return total;
+                    return total.toFixed(3);
                   },
             }
 }));
