@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+</head>
+
+<body>
+    <form action="create" method="POST" class="form" id="formRegister">
+        <div class="modal modal-Register">
+            <div class="modal__overlay">
+                <img src="/img/background_login.jpg" alt="" style="width :100%;">
+            </div>
+            
+            <div class="modal__body">
+                <div class="auth-form">
+                    <div class="auth-form__container">
+                        <div class="auth-form-header">
+                            <h3 class="auth-form-heading">Đăng ký</h3>
+                            <a class="btn btn-normal auth-form__switch-btn" href="login">Đăng nhập</a>
+                        </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+
+                                <input name="email" id="email-Register" type="text" class="auth-form__input"
+                                    placeholder="Email của bạn">
+                                <span class="form-message"></span>
+
+                            </div>
+
+                            <div class="auth-form__group">
+
+                                <input name="username" id="username-Register" type="text" class="auth-form__input"
+                                    placeholder="Tên đăng nhập">
+                                <span class="form-message"></span>
+
+                            </div>
+
+                            <div class="auth-form__group">
+                                <input name="name" id="name-Register" type="text" class="auth-form__input"
+                                    placeholder="Họ và tên">
+                                <span class="form-message"></span>
+
+                            </div>
+
+                            <div class="auth-form__group">
+                                <input name="phonenumber" id="phonenumber-Register" type="text" class="auth-form__input"
+                                    placeholder="Số điện thoại">
+                                <span class="form-message"></span>
+
+                            </div>
+
+                            <div class="auth-form__group ">
+                                <input name="password" id="password-Register" type="password" class="auth-form__input"
+                                    placeholder="Mật khẩu của bạn">
+                                <span class="form-message"></span>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <input id="password_confirmation" type="password"
+                                    class="auth-form__input" placeholder="Xác nhận mật khẩu">
+                                <span class="form-message"></span>
+                            </div>
+
+                            <div class="auth-form__group">
+                                <div class="gender__group">
+                                    <label for="gender" class="gender-label">Giới tính:</label>
+                                <div class="radio-group">
+                                    <input name="gender" type="radio" id="male" value="Nam" >
+                                    <label for="male">Nam</label>
+                                    <input name="gender" type="radio" id="female" value="Nữ">
+                                    <label for="female">Nữ</label>
+                                    <input name="gender" type="radio" id="other" value="Khác">
+                                    <label for="other">Khác</label>
+                                </div>
+                                </div>
+                                <span class="form-message"></span>
+                            </div>
+
+                            
+
+
+                        </div>
+
+                        <div class="auth-form__aside">
+                            <p class="auth-form__policy-text">Bằng việc đăng kí, bạn đã đồng ý với Shopee về
+                                <a href="#" class="auth_form-text-link">Điền khoản dịch vụ</a> &
+                                <a href="#" class="auth_form-text-link">Chính sách bảo mật</a>
+                            </p>
+
+                        </div>
+                        <div class="auth-form__message">
+                            <span class="form-message__noti">
+                                {{message}}
+                            </span>
+                        </div>
+                        <div class="auth-form__control" style="margin-top: 16px;">
+                            <button class="btn btn-normal auth-form__control-back">
+                                Trở lại
+                            </button>
+                            <button class="btn btn--primary" style="background-color: #89a4a6;">
+                                Đăng ký
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="auth-form__socials">
+                        <button class="btn btn-normal btn-size-s auth-form__register-facebook">
+                            <i class="auth-form__socials-icon fa-brands fa-facebook"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Facebook
+                            </span>
+                        </button>
+
+                        <button class="btn btn-normal btn-size-s auth-form__register-google">
+                            <i class="auth-form__socials-icon fa-brands fa-google"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Google
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    
+</body>
+
+</html>
+
+
+
+<script src="/src/main.js">
+</script>
+<script src="/src/validator.js">
+</script>
+
+<script>
+    const formMessage = $('.auth-form__message');
+    const messageNoti = $('.form-message__noti');
+    const btnBack = $(".auth-form__control-back");
+    const formRegister = $('#formRegister')
+    const btnFacebook = $(".auth-form__register-facebook");
+    const btnGoogle = $(".auth-form__register-google");
+    btnBack.onclick = function (e) {
+        e.preventDefault();
+    }
+    btnFacebook.onclick = function (e) {
+        e.preventDefault();
+    }
+    btnGoogle.onclick = function (e) {
+        e.preventDefault();
+    }
+     const trimmedInnerText = messageNoti.innerText.trim();
+    if (trimmedInnerText !== '') {
+        formMessage.style.display = "block";
+        if (formMessage.classList.contains('success__message')) {
+            const iconSuccess = document.createElement("i");
+            iconSuccess.classList.add("fa-solid", "fa-check");
+            iconSuccess.style.color = "black";
+            messageNoti.insertBefore(iconSuccess, messageNoti.firstChild);
+        }
+    }
+    Validator({
+        form: "#formRegister",
+        formGroupSelector: '.auth-form__group',
+        errorSelector: '.form-message',
+        rules: [
+
+
+            Validator.isEmail('#email-Register'),
+            Validator.isRequired('#password-Register'),
+            Validator.isRequired('#username-Register'),
+            Validator.isRequired('#name-Register'),
+            Validator.isRequired('input[name="gender"]'),
+            Validator.isRequired('#phonenumber-Register'),
+            Validator.isMin('#password-Register', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+            Validator.isRequired('#password_confirmation'),
+            Validator.isMin('#password_confirmation', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+            Validator.isConfirmed('#password_confirmation', function () {
+                return document.querySelector('#formRegister #password-Register').value;
+            }, 'Mật khẩu xác nhận không đúng'),
+
+        ],
+        onSubmit: function (data) {
+            formRegister.submit();
+        }
+    });
+</script>

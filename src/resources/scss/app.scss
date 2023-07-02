@@ -2,6 +2,9 @@
 @import 'base';
 @import 'product';
 
+// .tam {
+//     font-size: 1000px;
+// }
 
 .header {
     height: 120px;
@@ -365,11 +368,11 @@
 /* Authen modal */
 
 
-.modal-Register,
-.modal-Login {
-    /* display: none; */
+// .modal-Register,
+// .modal-Login {
+//     /* display: none; */
 
-}
+// }
 .open {
     display: flex;
 }
@@ -393,12 +396,31 @@
 .modal .auth-form__switch-btn {
     font-size: 16px;
     font-weight: 400;
-    color: var(--primary-color);
+    color: #89a4a6;
     cursor: pointer;
 }
 
 .modal .auth-form__group {
     margin-bottom: 14px;
+}
+
+.modal .gender__group{
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    opacity: 0.7;
+    padding: 9.5px;
+    border: 1px solid #ccc;
+}
+
+
+
+.gender__group .radio-group label{
+    margin-right: 14px;
+}
+
+.gender__group .gender-label {
+    margin-right: 24px;
 }
 
 .modal .auth-form__input {
@@ -415,7 +437,7 @@
 }
 
 .modal .auth_form-text-link {
-    color: var(--primary-color);
+    color: #95e5ec;
     text-decoration: none;
 }
 
@@ -456,7 +478,7 @@
 
 .modal .auth-form__register-facebook {
 
-    background-color: #003a64;
+    background-color: #89a4a6;
     color: var(--white-color);
     border-radius: 3px;
 }
@@ -488,6 +510,26 @@
     border-radius: 0 0 5px 5px;
 }
 
+.modal .auth-form__message {
+    margin-top: 16px;
+    padding: 16px;
+    display: none;
+    font-size: 12px;
+}
+
+.error__message {
+    background-color: #f0b2a6;
+}
+
+.success__message {
+    background-color: #89a4a6;
+
+}
+
+
+
+
+
 .modal .auth-form__aside {
     display: flex;
     justify-content: flex-end;
@@ -498,7 +540,7 @@
 
 .auth-form__aside .auth-form__aside-forgot {
     text-decoration: none;
-    color: var(--primary-color);
+    color: #3f7a7e;
 }
 
 .auth-form__aside .auth-form_aside-separate {
@@ -995,7 +1037,7 @@
     font-size: 1.4rem;
     right: 0;
     transition: right linear 0.1s;
-
+    text-transform: uppercase;
 }
 
 .category-item__link:hover {
@@ -1075,13 +1117,13 @@
     background-color: var(--white-color);
     position: relative;
     border-radius: 2px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0 , 0.01);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.01);
     transition: transfrom linear 0.1s;
 }
 
 .home-product-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 1px 20px 0 rgba(0, 0, 0 , 0.01);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.01);
 
 }
 
@@ -1357,10 +1399,14 @@ i.home-product-item__like-icon-fill {
     font-size: 1.2rem;
     color: #737373;
 }
+.auth-form__group.invalid .gender__group {
+        border:  #f33a58 1px solid;
 
+}
 .auth-form__group.invalid .form-message {
     color: #f33a58;
 }
+
 
 .form-message {
     font-size: 1.2rem;
@@ -1372,6 +1418,7 @@ i.home-product-item__like-icon-fill {
 .auth-form__group.invalid .auth-form__input {
     border-color: #f33a58;
 }
+
 
 a:hover {
     text-decoration: none;

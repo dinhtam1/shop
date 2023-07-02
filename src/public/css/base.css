@@ -65,7 +65,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
+  display: -webkit-box;
   animation: fadeIn ease-in 0.4s; }
 
 .modal__overlay {
@@ -78,11 +78,13 @@ html {
   --growth-form: 0.8;
   --growth-to: 1;
   width: 500px;
+  position: relative;
   background-color: white;
   margin: auto;
   z-index: 1;
   border-radius: 5px;
-  animation: growth linear 0.1s; }
+  animation: growth linear 0.1s;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4); }
 
 .btn {
   min-width: 124px;

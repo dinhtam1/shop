@@ -9,7 +9,9 @@ class UserController {
     }
 
     show(req, res, next) {
-        User.findOne({})
+        const userId = req.session.userId;
+        // res.send(userId);
+        User.findOne({userId: userId})
             .then(user => {
                 Cart.countDocuments({})
                     .then((count) => {

@@ -65,7 +65,7 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
+  display: -webkit-box;
   animation: fadeIn ease-in 0.4s; }
 
 .modal__overlay {
@@ -78,11 +78,13 @@ html {
   --growth-form: 0.8;
   --growth-to: 1;
   width: 500px;
+  position: relative;
   background-color: white;
   margin: auto;
   z-index: 1;
   border-radius: 5px;
-  animation: growth linear 0.1s; }
+  animation: growth linear 0.1s;
+  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4); }
 
 .btn {
   min-width: 124px;
@@ -600,10 +602,6 @@ html {
   right: 0; }
 
 /* Authen modal */
-.modal-Register,
-.modal-Login {
-  /* display: none; */ }
-
 .open {
   display: flex; }
 
@@ -623,11 +621,25 @@ html {
 .modal .auth-form__switch-btn {
   font-size: 16px;
   font-weight: 400;
-  color: var(--primary-color);
+  color: #89a4a6;
   cursor: pointer; }
 
 .modal .auth-form__group {
   margin-bottom: 14px; }
+
+.modal .gender__group {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  opacity: 0.7;
+  padding: 9.5px;
+  border: 1px solid #ccc; }
+
+.gender__group .radio-group label {
+  margin-right: 14px; }
+
+.gender__group .gender-label {
+  margin-right: 24px; }
 
 .modal .auth-form__input {
   width: 100%;
@@ -641,7 +653,7 @@ html {
   font-weight: 450; }
 
 .modal .auth_form-text-link {
-  color: var(--primary-color);
+  color: #95e5ec;
   text-decoration: none; }
 
 .modal .auth-form__policy-text {
@@ -669,7 +681,7 @@ html {
   font-size: 16px; }
 
 .modal .auth-form__register-facebook {
-  background-color: #003a64;
+  background-color: #89a4a6;
   color: var(--white-color);
   border-radius: 3px; }
 
@@ -688,6 +700,18 @@ html {
 .modal .auth-form__socials {
   border-radius: 0 0 5px 5px; }
 
+.modal .auth-form__message {
+  margin-top: 16px;
+  padding: 16px;
+  display: none;
+  font-size: 12px; }
+
+.error__message {
+  background-color: #f0b2a6; }
+
+.success__message {
+  background-color: #89a4a6; }
+
 .modal .auth-form__aside {
   display: flex;
   justify-content: flex-end;
@@ -696,7 +720,7 @@ html {
 
 .auth-form__aside .auth-form__aside-forgot {
   text-decoration: none;
-  color: var(--primary-color); }
+  color: #3f7a7e; }
 
 .auth-form__aside .auth-form_aside-separate {
   display: block;
@@ -1090,7 +1114,8 @@ html {
   color: var(--text-color);
   font-size: 1.4rem;
   right: 0;
-  transition: right linear 0.1s; }
+  transition: right linear 0.1s;
+  text-transform: uppercase; }
 
 .category-item__link:hover {
   color: var(--primary-color);
@@ -1365,6 +1390,9 @@ i.home-product-item__like-icon-fill {
   text-align: center;
   font-size: 1.2rem;
   color: #737373; }
+
+.auth-form__group.invalid .gender__group {
+  border: #f33a58 1px solid; }
 
 .auth-form__group.invalid .form-message {
   color: #f33a58; }

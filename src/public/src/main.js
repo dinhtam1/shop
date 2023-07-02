@@ -41,7 +41,7 @@ const $ = document.querySelector.bind(document);
         }
         Array.from(btnNormals).forEach(function (btnNormal) {
             btnNormal.onclick = function (e) {
-                e.preventDefault();
+                // e.preventDefault();
             }
         })
 

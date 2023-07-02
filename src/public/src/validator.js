@@ -93,7 +93,7 @@ vào biến rồi lặp tiếp
                                     break;
                                 default : 
                                     values[input.name] = input.value;
-
+                                
                         }
                         
                         return values;

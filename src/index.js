@@ -1,8 +1,10 @@
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const { engine } = require('express-handlebars');
 const morgan = require('morgan');
+
 const port = 3000;
 
 const route = require('./routes');
@@ -19,7 +21,12 @@ app.use(
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false
+  }));
+  
 // HTTP Logger
 app.use(morgan('combined'));
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    <form action="check" method="POST" class="form" id="formLogin">
+        <div class="modal modal-Login">
+            <div class="modal__overlay">
+                <img src="/img/background_login.jpg" alt="" style="width :100%;">
+            </div>
+            <div class="modal__body">
+                <div class="auth-form">
+                    <div class="auth-form__container">
+
+
+                        <div class="auth-form-header">
+                            <h3 class="auth-form-heading">Đăng nhập</h3>
+                            <a class="btn btn-normal auth-form__switch-btn" href="signup">Đăng ký</a>
+                        </div>
+
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <input id="email-Login" name="email" type="text" class="auth-form__input"
+                                    placeholder="Email của bạn">
+                                <span class="form-message"></span>
+
+                            </div>
+
+                            <div class="auth-form__group">
+                                <input id="password-Login" name="password" type="password" class="auth-form__input"
+                                    placeholder="Mật khẩu của bạn">
+                                <span class="form-message"></span>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="auth-form__aside">
+                            <a href="" class="auth-form__aside-forgot">Quên mật khẩu</a>
+                            <span class="auth-form_aside-separate"></span>
+                            <a href="" class="auth-form__aside-help">Cần trợ giúp</a>
+                        </div>
+
+                        <div class="auth-form__message {{status}}__message">
+                            <span class="form-message__noti">
+                                {{message}}
+                            </span>
+                        </div>
+
+
+                        <div class="auth-form__control">
+                            <button class="btn btn-normal auth-form__control-back">
+                                Trở lại
+                            </button>
+                            <button class="btn btn--primary" style="background-color: #89a4a6;">
+                                Đăng nhập
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                    <div class="auth-form__socials">
+                        <button class="btn btn-normal  btn-size-s auth-form__register-facebook">
+                            <i class="auth-form__socials-icon fa-brands fa-facebook"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Facebook
+                            </span>
+                        </button>
+
+                        <button class="btn btn-normal btn-size-s auth-form__register-google">
+                            <i class="auth-form__socials-icon fa-brands fa-google"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Google
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </form>
+</body>
+
+</html>
+
+
+<script src="/src/main.js">
+</script>
+<script src="/src/validator.js">
+</script>
+
+<script>
+    const formMessage = $('.auth-form__message');
+    
+    const formLogin = $('#formLogin')
+    const messageNoti = $('.form-message__noti');
+    const btnBack = $(".auth-form__control-back");
+    const btnFacebook = $(".auth-form__register-facebook");
+    const btnGoogle = $(".auth-form__register-google");
+    btnBack.onclick = function (e) {
+        e.preventDefault();
+    }
+    btnFacebook.onclick = function (e) {
+        e.preventDefault();
+    }
+    btnGoogle.onclick = function (e) {
+        e.preventDefault();
+    };
+    const trimmedInnerText = messageNoti.innerText.trim();
+    if (trimmedInnerText !== '') {
+        formMessage.style.display = "block";
+        if (formMessage.classList.contains('success__message')) {
+            const iconSuccess = document.createElement("i");
+            iconSuccess.classList.add("fa-solid", "fa-check");
+            iconSuccess.style.color = "black";
+            messageNoti.insertBefore(iconSuccess, messageNoti.firstChild);
+        } else {
+            const iconError = document.createElement("i");
+            iconError.classList.add("fa-regular", "fa-circle-xmark");
+            iconError.style.color = "red";
+            messageNoti.insertBefore(iconError, messageNoti.firstChild);
+        }
+    }
+    Validator({
+        form: "#formLogin",
+        formGroupSelector: '.auth-form__group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email-Login'),
+            Validator.isRequired('#password-Login'),
+            Validator.isMin('#password-Login', 6, 'Mật khẩu phải dài hơn 6 kí tự'),
+        ],
+        onSubmit: function (data) {
+            formLogin.submit();
+        }
+    });
+</script>
