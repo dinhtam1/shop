@@ -15,8 +15,6 @@ class SiteController {
                 return Cart.find({}).then((cart) => {
                     const materials = product.map(product => product.material);
                     const uniqueMaterials = [...new Set(materials)];
-                    console.log(uniqueMaterials)
-
                     res.render('home', {
                         product: multipleMongooseToObject(product),
                         cart: multipleMongooseToObject(cart),

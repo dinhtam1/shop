@@ -22,10 +22,10 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
-  }));
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+}));
   
 // HTTP Logger
 app.use(morgan('combined'));

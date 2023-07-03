@@ -20,15 +20,35 @@ class CartController {
   }
   store(req, res, next) {
     const formData = req.body;
-    const cart = new Cart(formData);
-    cart.save()
-      .then(() => {
-        setTimeout(function () {
-          res.redirect(req.get('referer'));
-        }, 500);
+    const userId = req.session.userId;
+    const cart = new Cart({
+      ...formData,
+      userId: userId
+    });
+    Cart.findOne({ _id: formData._id })
+      .then(existingId => {
+        if (existingId) {
+          const newQuantity = parseInt(existingId.quantity) + parseInt(formData.quantity);
+          return Cart.updateOne({ _id: formData._id }, { quantity: newQuantity })
+            .then(() => {
+              res.redirect(req.get('referer'));
+            })
+            .catch(next)
+        } else {
+          cart.save()
+            .then(() => {
+              setTimeout(function () {
+                res.redirect(req.get('referer'));
+              }, 500);
+            })
+            .catch(next);
+        }
       })
       .catch(next);
+
+
   }
+
 
 
 }

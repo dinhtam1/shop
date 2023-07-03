@@ -109,7 +109,7 @@
                                     <a href="/cart">Giỏ hàng</a>
                                 </li>
                                 <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="login">Đăng xuất</a>
+                                    <a href="/login">Đăng xuất</a>
                                 </li>
                             </ul>
 
@@ -123,7 +123,7 @@
         <!-- Header with search -->
         <div class="header-with-search">
             <div class="header__logo">
-                <a class="header__logo-link" href="home">
+                <a class="header__logo-link" href="/home">
                     <svg viewBox="0 0 192 65" class="header__logo-img">
                         <g fill-rule="evenodd">
                             <path fill="#fff"
@@ -190,6 +190,7 @@
 
                         <ul class="header__cart-list-item">
                             {{#each cart}}
+                            <a href="/product/{{this._id}}">
                             <li class="header__cart-item">
                                 <img class="header__cart-item-img" src="{{this.img}}" alt="">
                                 <div class="header__cart-item-info">
@@ -210,6 +211,7 @@
                                 </div>
 
                             </li>
+                            </a>
                             {{/each}}
 
 

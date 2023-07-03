@@ -8,6 +8,7 @@ const Cart = new Schema({
     price: { type: Number, required: true },
     material: { type: String, required: true },
     quantity: { type: Number, required: true },
+    userId: { type: String, required: false },
 });
 
 module.exports = mongoose.model('Cart', Cart);
