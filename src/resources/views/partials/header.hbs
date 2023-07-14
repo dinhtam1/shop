@@ -96,9 +96,10 @@
                 </li>  --}}
 
                  <li class="header__navbar-item header__navbar-user">
-                            <img class="header__navbar-user-avt" src="/img/avt.png" alt="">
+                            <img class="header__navbar-user-avt" src="/img/avt.jpg" alt="">
+                            {{!-- <img class="header__navbar-user-avt"  alt=""> --}}
 
-                            <span class="header__navbar-name-user">Đình Tâm</span>
+                            <span class="header__navbar-name-user">{{user.name}}</span>
 
 
                             <ul class="header__navbar-user-menu">
@@ -190,7 +191,7 @@
 
                         <ul class="header__cart-list-item">
                             {{#each cart}}
-                            <a href="/product/{{this._id}}">
+                            <a href="/product/{{this.slug}}">
                             <li class="header__cart-item">
                                 <img class="header__cart-item-img" src="{{this.img}}" alt="">
                                 <div class="header__cart-item-info">
@@ -205,7 +206,7 @@
 
                                     <div class="header__cart-item-body">
                                         <span class="header__cart-item-description">Phân loại : {{this.material}}</span>
-                                        <span class="header__cart-item-remove">Xóa</span>
+                                        {{!-- <span class="header__cart-item-remove">Xóa</span> --}}
                                     </div>
 
                                 </div>

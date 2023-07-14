@@ -10,21 +10,21 @@ class UserController {
 
     show(req, res, next) {
         const userId = req.session.userId;
-        User.findOne({userId: userId})
+        User.findOne({ userId: userId })
             .then(user => {
-                Cart.countDocuments({})
+                Cart.countDocuments({ userId: userId })
                     .then((count) => {
                         res.locals.documentCount = count;
+                        Cart.find({ userId: userId })
+                            .then((cart) => {
+                                res.render('user', {
+                                    user: mongooseToObject(user),
+                                    cart: multipleMongooseToObject(cart)
+                                })
+                            });
                     })
                     .catch(next);
-                Cart.find({})
-                    .then((cart) => {
-                        res.render('user', {
-                            user: mongooseToObject(user),
-                            cart: multipleMongooseToObject(cart)
-                        })
 
-                    });
             })
             .catch(next);
     }

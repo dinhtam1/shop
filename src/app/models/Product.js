@@ -12,8 +12,7 @@ const Product = new Schema({
     brand: { type: String, required: true },
     origin: { type: String, required: true },
     material: { type: String, required: true },
-    
-    
+    slug: { type: String, slug : 'name'},
 
 });
 

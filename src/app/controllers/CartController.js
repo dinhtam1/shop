@@ -1,14 +1,25 @@
+const User = require('../models/User');
 const Cart = require("../models/Cart");
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 
 class CartController {
   index(req, res, next) {
-    Cart.countDocuments({})
+    const userId = req.session.userId;
+
+    Cart.countDocuments({ userId: userId })
       .then((count) => {
         res.locals.documentCount = count;
-        Cart.find({})
+        Cart.find({ userId: userId })
           .then((cart) => {
-            res.render('cart', { cart: multipleMongooseToObject(cart) });
+            User.findOne({ userId: userId })
+              .then((user) => {
+                res.render('cart', {
+                  cart: multipleMongooseToObject(cart),
+                  user: mongooseToObject(user),
+                });
+
+              });
           })
           .catch(next);
       })
@@ -25,29 +36,38 @@ class CartController {
       ...formData,
       userId: userId
     });
-    Cart.findOne({ _id: formData._id })
-      .then(existingId => {
-        if (existingId) {
-          const newQuantity = parseInt(existingId.quantity) + parseInt(formData.quantity);
-          return Cart.updateOne({ _id: formData._id }, { quantity: newQuantity })
+    Cart.findOne({ name: formData.name, userId: userId })
+      .then(existingCart => {
+        if (existingCart) {
+          const newQuantity = parseInt(existingCart.quantity) + parseInt(formData.quantity);
+          return Cart.updateOne({ name: formData.name, userId: userId }, { quantity: newQuantity })
             .then(() => {
-              res.redirect(req.get('referer'));
+              res.redirect('back');
             })
-            .catch(next)
+            .catch(next);
         } else {
           cart.save()
             .then(() => {
               setTimeout(function () {
-                res.redirect(req.get('referer'));
+                res.redirect('back');
               }, 500);
             })
             .catch(next);
         }
       })
       .catch(next);
-
+  }
+  destroy(req, res, next) {
+    setTimeout(function () {
+      Cart.deleteOne({ _id: req.params.id })
+        .then(() => {
+          res.redirect('back');
+        })
+        .catch(next);
+    }, 500)
 
   }
+
 
 
 

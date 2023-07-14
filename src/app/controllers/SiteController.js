@@ -2,24 +2,31 @@ const Product = require('../models/Product');
 const Cart = require('../models/Cart');
 const User = require('../models/User');
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const { mongooseToObject } = require('../../util/mongoose');
 class SiteController {
     index(req, res, next) {
+        const userId = req.session.userId;
         Product.find({})
             .then((product) => {
-                return Cart.countDocuments({}).then((count) => {
+                return Cart.countDocuments({userId : userId}).then((count) => {
                     res.locals.documentCount = count;
                     return product;
                 });
             })
             .then((product) => {
-                return Cart.find({}).then((cart) => {
+                return Cart.find({userId : userId}).then((cart) => {
                     const materials = product.map(product => product.material);
                     const uniqueMaterials = [...new Set(materials)];
-                    res.render('home', {
-                        product: multipleMongooseToObject(product),
-                        cart: multipleMongooseToObject(cart),
-                        material: uniqueMaterials,
-                    });
+                    User.findOne({userId: userId})
+                        .then(user => {
+                            res.render('home', {
+                                product: multipleMongooseToObject(product),
+                                cart: multipleMongooseToObject(cart),
+                                user: mongooseToObject(user),
+                                material: uniqueMaterials,
+                            });
+                        })
+                    
                 });
             })
             .catch(next);

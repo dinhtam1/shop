@@ -45,7 +45,7 @@
     content: "";
     display: block;
     position: absolute;
-    border-left: 1px solid #fb9086;
+    border-left: 1px solid #455e5f;
     height: 16px;
     right: -9px;
     top: 50%;
@@ -229,7 +229,7 @@
     position: absolute;
     top: -12px;
     right: 0;
-    width: 56%;
+    width: 86%;
     height: 12px;
 }
 
@@ -273,7 +273,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: rgba(238, 77, 45, 0.1);
+    background-color: #aec9cc;
     text-align: justify;
 
 }
@@ -330,7 +330,7 @@
 }
 
 .header__notify-link:hover {
-    background-color: #f7f7f7;
+    background-color:  #c4dfe1;
 }
 
 .header__navbar--title-notify:hover {
@@ -795,7 +795,7 @@
 }
 
 .header__cart-view-cart:hover {
-    background-color: #F05D41;
+    background-color: #4a5e5f;
 }
 
 .header__search-input-wrap {
