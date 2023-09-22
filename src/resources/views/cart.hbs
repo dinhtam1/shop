@@ -29,13 +29,16 @@
         box-shadow: 2px 2px 16px 0 #36130c;
         border-radius: 4px;
     }
+    .table thead th {
+        padding: 20px;
+    }
 </style>
 
 <body>
 
     <div class="container mt-4 mb-4">
         <h1>Giỏ hàng</h1>
-        <form>
+        <form class="mt-4" method="POST" action="cart/{{user.userId}}?_method=PUT">
             <table class="table">
                 <thead>
                     <tr>
@@ -45,6 +48,7 @@
                         <th scope="col">Số lượng</th>
                         <th scope="col">Đơn Giá</th>
                         <th scope="col">Tổng cộng</th>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -56,14 +60,24 @@
                             <img src="{{this.img}}" alt="" style="width : 120px; border : 1px solid black">
                         </td>
                         <td>{{this.name}}</td>
-                        <td>{{this.quantity}}</td>
+                        <td>
+                            
+                            <div class="quantity__control">
+                            <button class="decrease-btn">-</button>
+                            <input name="quantity" type="text" class="quantity__input" value="{{this.quantity}}" min="1">
+                            <button class="increase-btn">+</button>
+                        </div>
+                        </td>
                         <td>{{this.price}}đ</td>
                         <td>{{multi this.quantity this.price}}đ</td>
+                        <td></td>
                         <td>
                             <a href="" class="btn btn-link" data-toggle="modal" data-target="#delete-product-modal"
                                 data-id="{{this._id}}">Xóa</a>
                         </td>
+
                     </tr>
+
                     {{/each}}
                 </tbody>
             </table>
@@ -71,7 +85,6 @@
             <div class="total">
                 <span class="total__price">Tổng tiền: {{total cart}}đ</span>
             </div>
-
 
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn--primary">Mua hàng</button>
@@ -125,6 +138,7 @@
             deleteForm.action = '/cart/' + productId + '?_method=DELETE';
             deleteForm.submit();
         }
+        
     });
 
 </script>

@@ -2,11 +2,11 @@ const User = require('../models/User');
 const Cart = require("../models/Cart");
 const { multipleMongooseToObject } = require('../../util/mongoose');
 const { mongooseToObject } = require('../../util/mongoose');
+const { response } = require('express');
 
 class CartController {
   index(req, res, next) {
     const userId = req.session.userId;
-
     Cart.countDocuments({ userId: userId })
       .then((count) => {
         res.locals.documentCount = count;
@@ -14,11 +14,11 @@ class CartController {
           .then((cart) => {
             User.findOne({ userId: userId })
               .then((user) => {
+
                 res.render('cart', {
                   cart: multipleMongooseToObject(cart),
                   user: mongooseToObject(user),
                 });
-
               });
           })
           .catch(next);
@@ -68,9 +68,18 @@ class CartController {
 
   }
 
+  update(req, res, next) {
+    // const filter = { $or: [{ productId: 'product1' }, { productId: 'product2' }] };
+    // const newQuantity = 10; // Số lượng mới bạn muốn cập nhật
 
-
-
+    // Cart.updateMany(filter, { quantity: newQuantity })
+    //   .then(result => {
+    //     console.log('Đã cập nhật số lượng cho các mặt hàng:', result);
+    //   })
+    //   .catch(err => {
+    //     console.error('Lỗi khi cập nhật số lượng:', err);
+    //   });
+  }
 }
 
 module.exports = new CartController;

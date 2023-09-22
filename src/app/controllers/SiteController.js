@@ -8,16 +8,16 @@ class SiteController {
         const userId = req.session.userId;
         Product.find({})
             .then((product) => {
-                return Cart.countDocuments({userId : userId}).then((count) => {
+                return Cart.countDocuments({ userId: userId }).then((count) => {
                     res.locals.documentCount = count;
                     return product;
                 });
             })
             .then((product) => {
-                return Cart.find({userId : userId}).then((cart) => {
+                return Cart.find({ userId: userId }).then((cart) => {
                     const materials = product.map(product => product.material);
                     const uniqueMaterials = [...new Set(materials)];
-                    User.findOne({userId: userId})
+                    User.findOne({ userId: userId })
                         .then(user => {
                             res.render('home', {
                                 product: multipleMongooseToObject(product),
@@ -26,7 +26,7 @@ class SiteController {
                                 material: uniqueMaterials,
                             });
                         })
-                    
+
                 });
             })
             .catch(next);
@@ -88,6 +88,7 @@ class SiteController {
         User.findOne({ email: email, password: password })
             .then((user) => {
                 if (user) {
+                    res.send(user);
                     req.session.userId = user.userId;
                     console.log('Đăng nhập thành công');
                     res.redirect('home')
